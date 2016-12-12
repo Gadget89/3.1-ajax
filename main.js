@@ -20,6 +20,19 @@ document.addEventListener("DOMContentLoaded", function(){
       movieInfo += "<img src='";
       movieInfo += JSONData.Poster;
       movieInfo += "'/>";
+      movieInfo += "<ul>";
+      movieInfo += "<li>";
+      movieInfo += "Released: " + JSONData.Released;
+      movieInfo += "<li>";
+      movieInfo += "Rated: " + JSONData.Rated;
+      movieInfo += "<li>";
+      movieInfo += "Directed by: " + JSONData.Director;
+      movieInfo += "<li>";
+      movieInfo += "Cast: "+ JSONData.Actors;
+      movieInfo += "</ul>"
+      movieInfo += "<p>";
+      movieInfo += JSONData.Plot;
+      movieInfo += "</p>";
       movieInfo += "</article>";
 
       movieSectionElement.innerHTML += movieInfo;

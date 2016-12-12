@@ -1,8 +1,28 @@
 // Create DOM
-document.addEventListener("DOMContentLoaded", fuction(){
+document.addEventListener("DOMContentLoaded", function(){
   // Find elemements to modify later
+  var movieSectionElement = document.querySelector("[data-js='body']")
   // Crate instance of XHR object
+  var xhr = new XMLHttpRequest();
   // Open specific URL
+  xhr.open("GET", "http://www.omdbapi.com/?t=machete&y=&plot=short&r=json");
   // Listen for the "load event"
-  // Type casting 
+  xhr.addEventListener("load", function(e){
+    // Type casting
+    var xhrData = this.response;
+    var JSONData = JSON.parse(xhrData);
+    console.log(JSONData);
+    // Create reference to array inside of of results
+      var movieInfo = "<article>";
+      movieInfo += "<h1>";
+      movieInfo += JSONData.Title + " "+ JSONData.Year;
+      movieInfo += "</h1>";
+      movieInfo += "<img src='";
+      movieInfo += JSONData.Poster;
+      movieInfo += "'/>";
+      movieInfo += "</article>";
+
+      movieSectionElement.innerHTML += movieInfo;
+  })
+  xhr.send();
 })

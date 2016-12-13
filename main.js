@@ -11,10 +11,9 @@ document.addEventListener("DOMContentLoaded", function(){
     // Type casting
     var xhrData = this.response;
     var JSONData = JSON.parse(xhrData);
-    console.log(JSONData);
     // Create reference to array inside of of results
-      var movieInfo = "<article>";
-      movieInfo += "<h1>";
+      var movieInfo = "<article class=New>";
+      movieInfo += "<h1 class=Title>";
       movieInfo += JSONData.Title + " "+ JSONData.Year;
       movieInfo += "</h1>";
       movieInfo += "<img src='";
